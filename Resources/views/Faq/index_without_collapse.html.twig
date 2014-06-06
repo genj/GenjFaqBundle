@@ -1,17 +1,12 @@
-{% extends 'base.html.twig' %}
+<h1>GenjFaqBundle</h1>
+<p>
+    Welcome to the GenjFaqBundle example template.
+</p>
 
-
-{% block content %}
-    <h1>GenjFaqBundle</h1>
-    <p>
-        Welcome to the GenjFaqBundle example template.
-    </p>
-
-    {% for category in categories %}
-        <h2>{{ category.headline|e }}</h2>
-        {% for question in category.questions %}
-            <p><strong>{{ question.headline|e }}</strong></p>
-            <p>{{ question.body }}</p>
-        {% endfor %}
+{% for category in categories %}
+    <h2>{{ category.headline|e }}</h2>
+    {% for question in category.questions %}
+        <p><strong>{{ question.headline|e }}</strong></p>
+        <p>{{ question.body }}</p>
     {% endfor %}
-{% endblock %}
+{% endfor %}
