@@ -61,7 +61,7 @@ Finally, update your database schema:
 php app/console doctrine:schema:update
 ```
 
-And you're done.
+And you're done. You should now be able to reach the bundle under the /faq URL.
 
 *Optional: enabling the admin tool*
 
@@ -69,10 +69,11 @@ todo
 
 *Optional: loading fixtures*
 
-```bash
-php app/console doctrine:fixtures:load --fixtures=vendor/Genj/FaqBundle/
-```
+If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
+```bash
+php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/Genj/FaqBundle/DataFixtures
+```
 
 
 ## Configuration
@@ -89,6 +90,7 @@ Both configuration options only apply to the collapsed view. They will open the 
 default if the user has not chosen a category and/or question yet. The default for both values is 'false', so set them
 to 'true' if you want this behaviour.
 
+Note that it is also required to have the Sluggable and Timestampable behaviours configured for gedmo/doctrine-extensions.
 
 
 ## FAQ
@@ -99,6 +101,5 @@ to 'true' if you want this behaviour.
 
 ## ToDo
 
-* Add admintool
 * Add tests
 * Sluggable Question unique within 1 category
