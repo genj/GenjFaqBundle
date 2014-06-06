@@ -1,0 +1,31 @@
+{
+    "name":        "genj/faq-bundle",
+    "type":        "symfony-bundle",
+    "description": "Symfony FAQ bundle",
+    "keywords":    ["genj", "faq", "symfony", "bundle"],
+    "homepage":    "http://github.com/Genj/GenjFaqBundle",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name":  "Choong Wei Tjeng",
+            "email": "choong.wei.tjeng@genj.nl"
+        }
+    ],
+
+    "require": {
+        "php":                       ">=5.3.3",
+        "symfony/framework-bundle":  ">=2.4.0",
+        "gedmo/doctrine-extensions": ">=2.3.9"
+    },
+
+    "minimum-stability": "dev",
+
+    "autoload": {
+        "psr-0": {
+            "Genj\\FaqBundle": ""
+        }
+    },
+
+    "target-dir": "Genj/FaqBundle"
+}

@@ -1,0 +1,104 @@
+# GenjFaqBundle
+
+The GenjFaqBundle allows you to display a FAQ on your website, with the questions being grouped in categories. Features:
+
+* Questions are grouped into Categories
+* Categories can be deactivated
+* Sonata admin module is provided
+* Can show all information at once, or collapse questions/categories for big FAQs
+* Collapsed mode generates SEO friendly URLs
+
+
+
+## Requirements
+
+* Symfony 2.4
+* GedmoDoctrineExtensions - https://packagist.org/packages/gedmo/doctrine-extensions
+
+Optional:
+
+* DoctrineFixturesBundle - https://packagist.org/packages/doctrine/doctrine-fixtures-bundle
+* SonataAdminBundle - https://packagist.org/packages/sonata-project/admin-bundle
+
+
+
+## Installation
+
+Add this to your composer.json:
+
+```json
+    ...
+    "require": {
+        ...
+        "genj/faq-bundle": "dev-master"
+        ...
+```
+
+Then run `composer update`. After that is done, enable the bundle in your AppKernel.php:
+
+```php
+# app/AppKernel.php
+class AppKernel extends Kernel
+{
+    public function registerBundles() {
+        $bundles = array(
+            ...
+            new Genj\FaqBundle\GenjFaqBundle()
+            ...
+```
+
+Add the routing rules to your routing.yml:
+
+```yml
+# app/config/routing.yml
+genj_faq:
+    resource: "@GenjFaqBundle/Resources/config/routing.yml"
+```
+
+Finally, update your database schema:
+
+```bash
+php app/console doctrine:schema:update
+```
+
+And you're done.
+
+*Optional: enabling the admin tool*
+
+todo
+
+*Optional: loading fixtures*
+
+```bash
+php app/console doctrine:fixtures:load --fixtures=vendor/Genj/FaqBundle/
+```
+
+
+
+## Configuration
+
+You can optionally include the configuration below into your config.yml:
+
+```yml
+genj_faq:
+    select_first_category_by_default: false
+    select_first_question_by_default: false
+```
+
+Both configuration options only apply to the collapsed view. They will open the first category and/or question by
+default if the user has not chosen a category and/or question yet. The default for both values is 'false', so set them
+to 'true' if you want this behaviour.
+
+
+
+## FAQ
+
+* I want to add fields to my Question or Category
+
+
+
+## ToDo
+
+* Add admintool
+* Add tests
+* Sluggable Question unique within 1 category
