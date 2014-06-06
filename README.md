@@ -61,6 +61,8 @@ Finally, update your database schema:
 php app/console doctrine:schema:update
 ```
 
+use the ```--force``` option to actually execute the DB update.
+
 And you're done. You should now be able to reach the bundle under the http://yourproject.com/faq URL.
 
 *Optional: enabling the admin tool*
