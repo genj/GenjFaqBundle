@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\DataFixtures\ORM;
+namespace Genj\FaqBundle\Tests\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -11,11 +11,11 @@ use Genj\FaqBundle\Entity\Category;
 
 
 /**
- * Class LoadCategoryData
+ * Class CategoryFixture
  *
- * @package Genj\FaqBundle\DataFixtures\ORM
+ * @package Genj\FaqBundle\Tests\Fixtures
  */
-class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class CategoryFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface

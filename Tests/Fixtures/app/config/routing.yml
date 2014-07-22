@@ -1,0 +1,2 @@
+genj_article_bundle:
+    resource: "@GenjArticleBundle/Resources/config/routing.yml"

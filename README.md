@@ -73,8 +73,8 @@ todo
 
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
-```bash
-php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/Genj/FaqBundle/DataFixtures
+```
+php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/Genj/FaqBundle/Tests/Fixtures/Entity
 ```
 
 
@@ -82,7 +82,7 @@ php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/Genj/Fa
 
 You can optionally include the configuration below into your config.yml:
 
-```yml
+```
 genj_faq:
     select_first_category_by_default: false
     select_first_question_by_default: false
@@ -104,5 +104,4 @@ gedmo/doctrine-extensions (see https://github.com/Atlantic18/DoctrineExtensions)
 
 ## ToDo
 
-* Add tests
 * Sluggable Question unique within 1 category
