@@ -12,7 +12,7 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 
 ## Requirements
 
-* Symfony 2.4
+* Symfony 2.5
 * GedmoDoctrineExtensions - https://packagist.org/packages/gedmo/doctrine-extensions
 
 Optional:
@@ -26,7 +26,7 @@ Optional:
 
 Add this to your composer.json:
 
-```json
+```
     ...
     "require": {
         ...
@@ -36,7 +36,7 @@ Add this to your composer.json:
 
 Then run `composer update`. After that is done, enable the bundle in your AppKernel.php:
 
-```php
+```
 # app/AppKernel.php
 class AppKernel extends Kernel
 {
@@ -49,7 +49,7 @@ class AppKernel extends Kernel
 
 Add the routing rules to your routing.yml:
 
-```yml
+```
 # app/config/routing.yml
 genj_faq:
     resource: "@GenjFaqBundle/Resources/config/routing.yml"
@@ -57,7 +57,7 @@ genj_faq:
 
 Finally, update your database schema:
 
-```bash
+```
 php app/console doctrine:schema:update
 ```
 
