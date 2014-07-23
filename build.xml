@@ -60,7 +60,7 @@
     </target>
 
     <target name="phpcs" description="Run PHP_CodeSniffer">
-        <exec executable="phpcs" checkreturn="true" passthru="true">
+        <exec executable="phpcs" passthru="true">
             <arg line="--ignore=vendor/*,build/*,Tests/Fixtures/*,.svn/*,.git/*"/>
             <arg line="--report=checkstyle"/>
             <arg line="--report-file=build/logs/checkstyle.xml"/>
@@ -70,7 +70,7 @@
     </target>
 
     <target name="phpdoc" description="Run phpDocumentor">
-        <exec executable="phpdoc" checkreturn="true" passthru="true">
+        <exec executable="phpdoc" passthru="true">
             <arg line="-i 'vendor/,build/,Tests/Fixtures/,.svn/,.git/'"/>
             <arg line="-d '.'"/>
             <arg line="-t 'build/docs'"/>
@@ -78,7 +78,7 @@
     </target>
 
     <target name="pdepend" description="Run PHP_Depend">
-        <exec executable="pdepend" checkreturn="true" passthru="true">
+        <exec executable="pdepend" passthru="true">
             <arg line="--ignore=vendor/*,build/*,Tests/Fixtures/*,.svn/*,.git/"/>
             <arg line="--jdepend-xml=build/logs/jdepend.xml"/>
             <arg line="--jdepend-chart=build/pdepend/dependencies.svg"/>
@@ -88,7 +88,7 @@
     </target>
 
     <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
-        <exec executable="phpcb" checkreturn="true" passthru="true">
+        <exec executable="phpcb" passthru="true">
             <arg line="--ignore=vendor,build,Tests/Fixtures,.svn,.git"/>
             <arg line="--log build/logs"/>
             <arg line="--source ."/>
@@ -97,7 +97,7 @@
     </target>
 
     <target name="phpcpd" description="Find duplicate code using PHPCPD">
-        <exec executable="phpcpd" checkreturn="true" passthru="true">
+        <exec executable="phpcpd" passthru="true">
             <arg line="--exclude=vendor"/>
             <arg line="--exclude=build"/>
             <arg line="--exclude=Tests/Fixtures"/>
@@ -109,7 +109,7 @@
     </target>
 
     <target name="phploc" description="Measure project size using PHPLOC">
-        <exec executable="phploc" checkreturn="true" passthru="true">
+        <exec executable="phploc" passthru="true">
             <arg line="--exclude=vendor"/>
             <arg line="--exclude=build"/>
             <arg line="--exclude=Tests/Fixtures"/>
