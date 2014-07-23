@@ -22,7 +22,7 @@
             <exclude>
                 <directory suffix=".php">./vendor</directory>
                 <directory suffix=".php">./build</directory>
-                <directory suffix=".php">./Tests/Fixtures/app</directory>
+                <directory suffix=".php">./Tests</directory>
             </exclude>
         </whitelist>
     </filter>
