@@ -32,7 +32,7 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/GenjArticleBundle/cache';
+        return sys_get_temp_dir().'/GenjFaqBundle/cache';
     }
 
     /**
@@ -40,6 +40,6 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return sys_get_temp_dir().'/GenjArticleBundle/logs';
+        return sys_get_temp_dir().'/GenjFaqBundle/logs';
     }
 }
