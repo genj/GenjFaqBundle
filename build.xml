@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Set some basic project information and targets -->
-<project name="GenjArticleBundle" default="build">
+<project name="GenjThumbnailBundle" default="build">
 
     <target name="build" depends="prepare, lint, vendors, dbupdate, fixtures, phpunit, phpcs, phpdoc, pdepend, phpcb, phpcpd, phploc, phpmd"/>
 
