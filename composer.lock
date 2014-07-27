@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1c51bb219cd3b962e8829f710dd6dbc7",
+    "hash": "174842169404cb4046857efbf70837a5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1495,6 +1495,60 @@
                 "parser"
             ],
             "time": "2014-05-21 20:20:46"
+        },
+        {
+            "name": "genj/dev-tools",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/genj/dev-tools.git",
+                "reference": "8c57afbd9dc036a4564a861d6654d2175cac504e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/genj/dev-tools/zipball/8c57afbd9dc036a4564a861d6654d2175cac504e",
+                "reference": "8c57afbd9dc036a4564a861d6654d2175cac504e",
+                "shasum": ""
+            },
+            "require": {
+                "covex-nn/phpcb": "1.*",
+                "mockery/mockery": "0.*",
+                "pdepend/pdepend": "2.*",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phploc/phploc": "2.*",
+                "phpmd/phpmd": "2.*",
+                "phpunit/phpunit": "4.*",
+                "sebastian/phpcpd": "2.*",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Choong Wei Tjeng",
+                    "email": "choong.wei.tjeng@genj.nl"
+                },
+                {
+                    "name": "Nico Kaag",
+                    "email": "nico.kaag@genj.nl"
+                },
+                {
+                    "name": "Susan Lau",
+                    "email": "susan.lau@genj.nl"
+                }
+            ],
+            "description": "Meta package which you can include in your composer.json's require-dev section. Provides development tools like PHPUnit, PHP_CodeSniffer, etc.",
+            "homepage": "http://github.com/Genj/dev-tools",
+            "keywords": [
+                "dev",
+                "genj",
+                "metapackage",
+                "tools"
+            ],
+            "time": "2014-07-27 18:06:07"
         },
         {
             "name": "jms/metadata",
