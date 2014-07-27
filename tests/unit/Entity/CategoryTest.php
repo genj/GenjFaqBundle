@@ -21,4 +21,28 @@ class CategoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame('John Doe', $categoryToString);
     }
+
+    /**
+     * @covers Genj\FaqBundle\Entity\Category::getRouteName
+     */
+    public function testGetRouteName()
+    {
+        $category  = new Category();
+        $routeName = $category->getRouteName();
+
+        $this->assertSame('genj_faq', $routeName);
+    }
+
+    /**
+     * @covers Genj\FaqBundle\Entity\Category::getRouteParameters
+     */
+    public function testGetRouteParameters()
+    {
+        $category = new Category();
+        $category->setSlug('my-foo-slug');
+
+        $routeParameters = $category->getRouteParameters();
+
+        $this->assertSame(array('categorySlug' => 'my-foo-slug'), $routeParameters);
+    }
 }
