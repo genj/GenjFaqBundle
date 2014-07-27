@@ -5,12 +5,12 @@ namespace Genj\FaqBundle\Entity;
 /**
  * Class QuestionTest
  *
- * @package Genj\FaqBundle\Tests\Entity
+ * @package Genj\FaqBundle\Entity
  */
 class QuestionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @return void
+     * @covers Genj\FaqBundle\Entity\Question::__toString
      */
     public function testToString()
     {

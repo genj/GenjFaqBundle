@@ -5,12 +5,12 @@ namespace Genj\FaqBundle\Entity;
 /**
  * Class CategoryTest
  *
- * @package Genj\FaqBundle\Tests\Entity
+ * @package Genj\FaqBundle\Entity
  */
 class CategoryTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @return void
+     * @covers Genj\FaqBundle\Entity\Category::__toString
      */
     public function testToString()
     {
@@ -19,6 +19,6 @@ class CategoryTest extends \PHPUnit_Framework_TestCase
 
         $categoryToString = (string) $category;
 
-        $this->assertEquals('John Doe', $categoryToString);
+        $this->assertSame('John Doe', $categoryToString);
     }
 }
