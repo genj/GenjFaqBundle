@@ -311,8 +311,7 @@ class Category
     public function getRouteParameters()
     {
         return array(
-            'categorySlug' => $this->getCategory()->getSlug(),
-            'slug'         => $this->getSlug()
+            'categorySlug' => $this->getSlug()
         );
     }
 }

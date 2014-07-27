@@ -269,7 +269,8 @@ class Question
     public function getRouteParameters()
     {
         return array(
-            'categorySlug' => $this->getCategory()->getSlug()
+            'categorySlug' => $this->getCategory()->getSlug(),
+            'questionSlug' => $this->getSlug()
         );
     }
 }
