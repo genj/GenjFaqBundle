@@ -1,2 +1,0 @@
-genj_faq_bundle:
-    resource: "@GenjFaqBundle/Resources/config/routing.yml"

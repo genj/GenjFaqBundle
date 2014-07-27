@@ -1,8 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Tests\Entity;
-
-use Genj\FaqBundle\Entity\Question;
+namespace Genj\FaqBundle\Entity;
 
 /**
  * Class QuestionTest

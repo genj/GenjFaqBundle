@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Tests\Fixtures;
+namespace Genj\FaqBundle\DataFixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
