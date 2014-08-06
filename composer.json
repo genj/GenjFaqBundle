@@ -37,7 +37,7 @@
 
     "autoload": {
         "psr-0": {
-            "Genj\\FaqBundle\\": ["src/", "tests/unit/"]
+            "Genj\\FaqBundle\\": "src/"
         }
     }
 }

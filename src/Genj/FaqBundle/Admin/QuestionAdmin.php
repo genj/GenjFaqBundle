@@ -41,6 +41,7 @@ class QuestionAdmin extends Admin
             ->addIdentifier('id')
             ->add('headline', null, array('identifier' => true))
             ->add('Category')
+            ->add('rank')
             ->add('_action', 'actions',
                 array(
                     'actions' => array(
@@ -60,7 +61,7 @@ class QuestionAdmin extends Admin
         $formMapper
             ->with('Basics', array('position' => 'left'))
             ->add('headline', null, array('attr' => array('class' => 'span12')))
-            ->add('body', null, array('attr' => array('class' => 'redactor_content')))
+            ->add('body', 'ckeditor', array('required' => false, 'attr' => array('class' => 'span12')))
             ->end()
 
             ->with('Status', array('position' => 'right'))
@@ -69,7 +70,8 @@ class QuestionAdmin extends Admin
                     'required' => true,
                     'attr' => array('class' => 'radio-list vertical')
                 ))
-            ->add('slug', null)
+            ->add('rank', null, array('required' => false, 'attr' => array('class' => 'span12')))
+            ->add('slug', null, array('required' => false, 'attr' => array('class' => 'span12')))
             ->end();
     }
 }

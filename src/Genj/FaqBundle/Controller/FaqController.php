@@ -79,7 +79,8 @@ class FaqController extends Controller
         return $this->render(
             'GenjFaqBundle:Faq:index_without_collapse.html.twig',
             array(
-                'categories' => $categories
+                'categories'   => $categories,
+                'categorySlug' => $categorySlug
             )
         );
     }
