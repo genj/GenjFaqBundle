@@ -3,7 +3,7 @@
     "type":        "symfony-bundle",
     "description": "Symfony FAQ bundle",
     "keywords":    ["genj", "faq", "symfony", "bundle"],
-    "homepage":    "http://github.com/Genj/GenjFaqBundle",
+    "homepage":    "http://github.com/genj/GenjFaqBundle",
     "license":     "MIT",
 
     "authors": [
