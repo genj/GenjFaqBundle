@@ -28,12 +28,19 @@
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "gedmo/doctrine-extensions": ">=2.3.9",
-        "vich/uploader-bundle": "~0"
+        "vich/uploader-bundle": "0.9.0"
     },
 
     "require-dev": {
-        "genj/dev-tools": "1.0.0"
+        "phpunit/phpunit": "dev-master",
+        "mockery/mockery": "dev-master"
     },
+
+    "config": {
+        "preferred-install": "dist"
+    },
+
+    "minimum-stability": "dev",
 
     "autoload": {
         "psr-0": {
