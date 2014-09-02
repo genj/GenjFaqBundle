@@ -27,8 +27,7 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "gedmo/doctrine-extensions": ">=2.3.9",
-        "vich/uploader-bundle": "0.9.0"
+        "gedmo/doctrine-extensions": ">=2.3.9"
     },
 
     "require-dev": {
