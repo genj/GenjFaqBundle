@@ -45,8 +45,10 @@ class FaqController extends Controller
             throw $this->createNotFoundException('You need at least 1 active faq category in the database');
         }
 
+        $config = $this->getConfig();
+
         return $this->render(
-            'GenjFaqBundle:Faq:index.html.twig',
+            $config['template']['index'],
             array(
                 'categories'       => $categories,
                 'questions'        => $questions,
@@ -76,8 +78,10 @@ class FaqController extends Controller
             throw $this->createNotFoundException('Faq category not found');
         }
 
+        $config = $this->getConfig();
+
         return $this->render(
-            'GenjFaqBundle:Faq:index_without_collapse.html.twig',
+            $config['template']['index_without_collapse'],
             array(
                 'categories'   => $categories,
                 'categorySlug' => $categorySlug
@@ -97,7 +101,7 @@ class FaqController extends Controller
     protected function generateRedirectToDefaultSelection($categorySlug, $questionSlug)
     {
         $doRedirect = false;
-        $config     = $this->container->getParameter('genj_faq');
+        $config     = $this->getConfig();
 
         if (!$categorySlug && $config['select_first_category_by_default']) {
             $firstCategory = $this->getCategoryRepository()->retrieveFirst();
@@ -174,5 +178,15 @@ class FaqController extends Controller
     protected function getCategoryRepository()
     {
         return $this->container->get('genj_faq.entity.category_repository');
+    }
+
+    /**
+     * returns configuration values
+     * 
+     * @return array
+     */
+    protected function getConfig()
+    {
+        return $this->container->getParameter('genj_faq');
     }
 }

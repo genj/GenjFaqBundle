@@ -86,6 +86,9 @@ You can optionally include the configuration below into your config.yml:
 genj_faq:
     select_first_category_by_default: false
     select_first_question_by_default: false
+    template:
+        index: GenjFaqBundle:Faq:index.html.twig
+        index_without_collapse: GenjFaqBundle:Faq:index_without_collapse.html.twig
 ```
 
 Both configuration options only apply to the collapsed view. They will open the first category and/or question by
