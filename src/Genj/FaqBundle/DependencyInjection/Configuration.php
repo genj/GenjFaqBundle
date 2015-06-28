@@ -25,7 +25,19 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->booleanNode('select_first_category_by_default')->defaultFalse()->end()
                 ->booleanNode('select_first_question_by_default')->defaultFalse()->end()
-            ->end();
+                ->arrayNode('template')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('index')
+                            ->defaultValue('GenjFaqBundle:Faq:index.html.twig')
+                        ->end()
+                        ->scalarNode('index_without_collapse')
+                            ->defaultValue('GenjFaqBundle:Faq:index_without_collapse.html.twig')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }
