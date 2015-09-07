@@ -273,4 +273,14 @@ class Question
             'questionSlug' => $this->getSlug()
         );
     }
+
+    /**
+     * Returns a string representation of the entity build out of BundleName + EntityName + EntityId
+     *
+     * @return string
+     */
+    public function getEntityIdentifier()
+    {
+        return 'GenjFaqBundle:Question:' . $this->getId();
+    }
 }
