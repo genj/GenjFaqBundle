@@ -35,7 +35,7 @@ class Question
     protected $headline;
 
     /**
-     * @ORM\Column(type="text", nullable=false)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $body;
 
