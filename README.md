@@ -4,7 +4,6 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 
 * Questions are grouped into Categories
 * Categories can be deactivated
-* Sonata admin module is provided
 * Can show all information at once, or collapse questions/categories for big FAQs
 * Collapsed mode generates SEO friendly URLs
 
@@ -30,6 +29,7 @@ Add this to your composer.json:
     ...
     "require": {
         ...
+        "gedmo/doctrine-extensions": "~2.3",
         "genj/faq-bundle": "dev-master"
         ...
 ```
@@ -74,7 +74,7 @@ todo
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
 ```
-php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/Genj/FaqBundle/Tests/Fixtures/Entity
+php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
 ```
 
 
