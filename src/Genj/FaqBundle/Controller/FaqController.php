@@ -57,35 +57,6 @@ class FaqController extends Controller
     }
 
     /**
-     * Index without any collapsing. Will just show all categories and questions at once.
-     *
-     * @param string $categorySlug
-     *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function indexWithoutCollapseAction($categorySlug)
-    {
-        if ($categorySlug) {
-            $categories = $this->getCategoryRepository()->retrieveActiveBySlug($categorySlug);
-        } else {
-            $categories = $this->getCategoryRepository()->retrieveActive();
-        }
-
-        if (!$categories) {
-            throw $this->createNotFoundException('Faq category not found');
-        }
-
-        return $this->render(
-            'GenjFaqBundle:Faq:index_without_collapse.html.twig',
-            array(
-                'categories'   => $categories,
-                'categorySlug' => $categorySlug
-            )
-        );
-    }
-
-    /**
      * Open first category or question if none was selected so far.
      *
      * @param string $categorySlug
@@ -121,7 +92,7 @@ class FaqController extends Controller
 
         if ($doRedirect) {
             return $this->redirect(
-                $this->generateUrl('genj_faq', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
+                $this->generateUrl('genj_faq_index', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
             );
         }
 

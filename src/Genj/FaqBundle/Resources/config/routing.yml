@@ -1,9 +1,3 @@
-# Shows one category and one question at a time. Useful if you have a very big FAQ and want SEO friendly URLs.
-genj_faq:
-    pattern:  /faq/{categorySlug}/{questionSlug}
+genj_faq_index:
+    path:  /faq/{categorySlug}/{questionSlug}
     defaults: { _controller: GenjFaqBundle:Faq:index, categorySlug: null, questionSlug: null }
-
-# Shows the entire FAQ at once, without collapsing any categories or questions. Useful if your FAQ is not that big.
-genj_faq_without_collapse:
-    pattern:  /faq-without-collapse/{categorySlug}
-    defaults: { _controller: GenjFaqBundle:Faq:indexWithoutCollapse, categorySlug: null }

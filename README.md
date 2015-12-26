@@ -5,20 +5,14 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 * Questions are grouped into Categories
 * Categories can be deactivated
 * Can show all information at once, or collapse questions/categories for big FAQs
+ that is basically up to you - how you are handling this in the template
 * Collapsed mode generates SEO friendly URLs
 
 
 
 ## Requirements
 
-* Symfony 2.5
-* GedmoDoctrineExtensions - https://packagist.org/packages/gedmo/doctrine-extensions
-
-Optional:
-
-* DoctrineFixturesBundle - https://packagist.org/packages/doctrine/doctrine-fixtures-bundle
-* SonataAdminBundle - https://packagist.org/packages/sonata-project/admin-bundle
-
+see composer.json
 
 
 ## Installation
@@ -29,7 +23,7 @@ Add this to your composer.json:
     ...
     "require": {
         ...
-        "gedmo/doctrine-extensions": "~2.3",
+        "gedmo/doctrine-extensions": ">=2.4.10",
         "genj/faq-bundle": "dev-master"
         ...
 ```
@@ -58,16 +52,13 @@ genj_faq:
 Finally, update your database schema:
 
 ```
-php app/console doctrine:schema:update
+php bin/console doctrine:schema:update
 ```
 
 use the ```--force``` option to actually execute the DB update.
 
 And you're done. You should now be able to reach the bundle under the http://yourproject.com/faq URL.
 
-*Optional: enabling the admin tool*
-
-todo
 
 *Optional: loading fixtures*
 
@@ -88,8 +79,8 @@ genj_faq:
     select_first_question_by_default: false
 ```
 
-Both configuration options only apply to the collapsed view. They will open the first category and/or question by
-default if the user has not chosen a category and/or question yet. The default for both values is 'false', so set them
+Both configuration will open the first category and/or question by default if the user has not
+chosen a category and/or question yet. The default for both values is 'false', so set them
 to 'true' if you want this behaviour.
 
 Note that it is also required to have the Sluggable and Timestampable behaviours configured for
@@ -98,10 +89,8 @@ gedmo/doctrine-extensions (see https://github.com/Atlantic18/DoctrineExtensions)
 
 ## FAQ
 
-* I want to add fields to my Question or Category
+* How do I add this to SonataAdmin?
 
-
-
-## ToDo
-
-* Sluggable Question unique within 1 category
+You can use the GenjFaqAdminBundle:
+https://github.com/genj/GenjFaqAdminBundle
+or just create your own admin class.
