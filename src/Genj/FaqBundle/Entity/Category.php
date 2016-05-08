@@ -4,6 +4,7 @@ namespace Genj\FaqBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Criteria;
 
 /**
  * Class Category
@@ -42,7 +43,6 @@ class Category
     protected $body;
 
     /**
-     * @Gedmo\SortablePosition
      * @ORM\Column(name="rank", type="integer")
      */
     protected $rank;
@@ -282,6 +282,18 @@ class Category
         return $this->questions;
     }
 
+    /**
+     * Get Sorted questions by Rank
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSortedQuestions()
+    {
+        $criteria = Criteria::create();
+        $criteria->orderBy(array('rank' => 'ASC'));
+
+        return $this->getQuestions()->matching($criteria);
+    }
 
     /**
      * Returns a string representation of this object

@@ -37,7 +37,7 @@ class FaqController extends Controller
         $selectedQuestion = $this->getSelectedQuestion($questionSlug);
 
         if ($selectedCategory) {
-            $questions = $selectedCategory->getQuestions();
+            $questions = $selectedCategory->getSortedQuestions();
         }
 
         // Throw 404 if there is no category in the database
