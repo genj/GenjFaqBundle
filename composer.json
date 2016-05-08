@@ -30,8 +30,8 @@
     },
 
     "require-dev": {
-        "phpunit/phpunit": "dev-master",
-        "mockery/mockery": "dev-master"
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^2.7"
     },
 
     "config": {

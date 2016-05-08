@@ -65,7 +65,7 @@ And you're done. You should now be able to reach the bundle under the http://you
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
 ```
-php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
+php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
 ```
 
 
