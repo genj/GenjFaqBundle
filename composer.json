@@ -1,7 +1,7 @@
 {
     "name":        "genj/faq-bundle",
-    "type":        "symfony2-bundle",
-    "description": "Symfony2 FAQ bundle",
+    "type":        "symfony-bundle",
+    "description": "Symfony FAQ bundle",
     "keywords":    ["genj", "faq", "symfony", "bundle"],
     "homepage":    "http://github.com/genj/GenjFaqBundle",
     "license":     "MIT",
@@ -22,11 +22,12 @@
     ],
 
     "require": {
-        "symfony/symfony": ">=2.8",
-        "sensio/framework-extra-bundle": "~3.0",
-        "doctrine/orm": ">=2.4.8",
-        "doctrine/doctrine-bundle": "~1.4",
-        "gedmo/doctrine-extensions": ">=2.4.10"
+        "symfony/symfony": ">=2.8,<3.0-dev",
+        "sensio/framework-extra-bundle": "3.0.*",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "gedmo/doctrine-extensions": ">=2.3.9"
     },
 
     "config": {
