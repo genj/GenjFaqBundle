@@ -5,7 +5,7 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 * Questions are grouped into Categories
 * Categories can be deactivated
 * Can show all information at once, or collapse questions/categories for big FAQs
- that is basically up to you - how you are handling this in the template
+  that is basically up to you - how you are handling this in the template
 * Collapsed mode generates SEO friendly URLs
 
 
@@ -23,8 +23,8 @@ Add this to your composer.json:
     ...
     "require": {
         ...
-        "gedmo/doctrine-extensions": ">=2.4.10",
-        "genj/faq-bundle": "dev-master"
+        "gedmo/doctrine-extensions": ">=2.3",
+        "genj/faq-bundle": "dev-2.8"
         ...
 ```
 
@@ -52,7 +52,7 @@ genj_faq:
 Finally, update your database schema:
 
 ```
-php bin/console doctrine:schema:update
+php app/console doctrine:schema:update
 ```
 
 use the ```--force``` option to actually execute the DB update.
@@ -65,7 +65,7 @@ And you're done. You should now be able to reach the bundle under the http://you
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
 ```
-php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
+php app/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
 ```
 
 
