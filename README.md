@@ -24,7 +24,7 @@ Add this to your composer.json:
     "require": {
         ...
         "gedmo/doctrine-extensions": ">=2.3",
-        "genj/faq-bundle": "dev-2.8"
+        "genj/faq-bundle": "2.8.x-dev"
         ...
 ```
 
