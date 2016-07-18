@@ -51,7 +51,9 @@ class FaqController extends Controller
                 'categories'       => $categories,
                 'questions'        => $questions,
                 'selectedCategory' => $selectedCategory,
-                'selectedQuestion' => $selectedQuestion
+                'selectedQuestion' => $selectedQuestion,
+                'categorySlug'     => $categorySlug,
+                'questionSlug'     => $questionSlug
             )
         );
     }
