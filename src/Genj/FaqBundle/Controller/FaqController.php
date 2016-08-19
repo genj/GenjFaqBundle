@@ -94,7 +94,7 @@ class FaqController extends Controller
 
         if ($doRedirect) {
             return $this->redirect(
-                $this->generateUrl('genj_faq_index', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
+                $this->generateUrl('genj_faq_faq_index', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
             );
         }
 

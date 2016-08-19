@@ -258,7 +258,7 @@ class Question
      */
     public function getRouteName()
     {
-        return 'genj_faq';
+        return 'genj_faq_faq_index';
     }
 
     /**
