@@ -1,16 +1,16 @@
 parameters:
-    genj_faq.entity.question.class: Genj\FaqBundle\Entity\Question
-    genj_faq.entity.category.class: Genj\FaqBundle\Entity\Category
-    genj_faq.entity.question_repository.class: Genj\FaqBundle\Entity\QuestionRepository
-    genj_faq.entity.category_repository.class: Genj\FaqBundle\Entity\CategoryRepository
+    genj_faq.entity.question.class: 'Genj\FaqBundle\Entity\Question'
+    genj_faq.entity.category.class: 'Genj\FaqBundle\Entity\Category'
+    genj_faq.entity.question_repository.class: 'Genj\FaqBundle\Entity\QuestionRepository'
+    genj_faq.entity.category_repository.class: 'Genj\FaqBundle\Entity\CategoryRepository'
 
 services:
     genj_faq.entity.question_repository:
         class:     '%genj_faq.entity.question_repository.class%'
-        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        factory:   ['@doctrine.orm.entity_manager', 'getRepository']
         arguments: ['%genj_faq.entity.question.class%']
 
     genj_faq.entity.category_repository:
         class:     '%genj_faq.entity.category_repository.class%'
-        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        factory:   ['@doctrine.orm.entity_manager', 'getRepository']
         arguments: ['%genj_faq.entity.category.class%']
