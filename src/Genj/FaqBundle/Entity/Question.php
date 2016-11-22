@@ -252,16 +252,6 @@ class Question
     }
 
     /**
-     * Returns the route name for url generation
-     *
-     * @return string
-     */
-    public function getRouteName()
-    {
-        return 'genj_faq_faq_index';
-    }
-
-    /**
      * Returns the route parameters for url generation
      *
      * @return array
