@@ -1,8 +1,8 @@
 {
     "name":        "genj/faq-bundle",
-    "type":        "symfony3-bundle",
-    "description": "Symfony3 FAQ bundle",
-    "keywords":    ["genj", "faq", "symfony", "bundle"],
+    "type":        "symfony-bundle",
+    "description": "Symfony FAQ bundle",
+    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "faq"],
     "homepage":    "http://github.com/genj/GenjFaqBundle",
     "license":     "MIT",
 
