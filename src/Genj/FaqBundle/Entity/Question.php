@@ -25,6 +25,7 @@ class Question
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
+     * @ORM\JoinColumn(referencedColumnName="id", onDelete="CASCADE", nullable=false)
      * @ORM\OrderBy({"rank" = "asc"})
      */
     protected $category;
