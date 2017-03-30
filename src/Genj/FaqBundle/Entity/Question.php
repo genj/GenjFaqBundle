@@ -4,7 +4,6 @@ namespace Genj\FaqBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Question
@@ -141,7 +140,6 @@ class Question
      * Get body
      *
      * @return string
-     * @Groups({"Default"})
      */
     public function getBody()
     {
@@ -238,7 +236,6 @@ class Question
      * Get category
      *
      * @return Category
-     * @Groups({"hydrated"})
      */
     public function getCategory()
     {

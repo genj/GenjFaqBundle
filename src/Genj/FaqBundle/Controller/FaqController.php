@@ -2,14 +2,7 @@
 
 namespace Genj\FaqBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
  * Class FaqController
@@ -26,10 +19,9 @@ class FaqController extends Controller
      * @param string $questionSlug
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @Route("/index.{_format}", name="genj_faq_index")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request, $_format='html', $categorySlug='', $questionSlug='')
+    public function indexAction($categorySlug, $questionSlug)
     {
         if (!$categorySlug || !$questionSlug) {
             $redirect = $this->generateRedirectToDefaultSelection($categorySlug, $questionSlug);
@@ -62,24 +54,6 @@ class FaqController extends Controller
                 'selectedQuestion' => $selectedQuestion
             )
         );
-    }
-
-    /**
-     **
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     * @Route("/json.{_format}", name="faq_json")
-     */
-    public function jsonAction(Request $request, $format='json')
-    {
-        $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new ObjectNormalizer());
-
-        $serializer = new Serializer($normalizers, $encoders);
-
-        return new JsonResponse($serializer->normalize([
-            'categories ' => $this->getCategoryRepository()->findAll()
-        ], 'json', ['groups' => ['Default']]));
-
     }
 
     /**
@@ -153,7 +127,6 @@ class FaqController extends Controller
         if ($categorySlug !== null) {
             $selectedCategory = $this->getCategoryRepository()->findOneBy(array('isActive' => true, 'slug' => $categorySlug));
         }
-
 
         return $selectedCategory;
     }
