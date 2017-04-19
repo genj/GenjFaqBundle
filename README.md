@@ -52,12 +52,14 @@ genj_faq:
 Finally, update your database schema:
 
 ```
-php bin/console doctrine:schema:update
+php bin/console doctrine:schema:update --dump-sql
 ```
 
 use the ```--force``` option to actually execute the DB update.
 
-And you're done. You should now be able to reach the bundle under the http://yourproject.com/faq URL.
+And you're done.
+You should now be able to reach the bundle under the http://yourproject.com/faq URL
+if you did add at least one category in your DB.
 
 
 *Optional: loading fixtures*
@@ -65,7 +67,7 @@ And you're done. You should now be able to reach the bundle under the http://you
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
 ```
-php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/tests/Fixtures/Entity
+php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/src/Genj/FaqBundle/DataFixtures/
 ```
 
 
