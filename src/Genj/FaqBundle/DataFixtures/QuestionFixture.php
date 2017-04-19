@@ -46,12 +46,12 @@ class QuestionFixture extends AbstractFixture implements OrderedFixtureInterface
                 'I lost my password',
                 'I cannot log in to the website',
                 'I have a cool idea for the website',
-                'This question exists in both categories',
                 'This question exists in both categories'
             )
         );
 
         $rank = 0;
+
         foreach ($data as $category => $questions) {
             foreach ($questions as $questionText) {
                 $question = new Question();
@@ -61,11 +61,12 @@ class QuestionFixture extends AbstractFixture implements OrderedFixtureInterface
                 $question->setCategory($this->getReference($category));
 
                 $manager->persist($question);
-                $manager->flush();
 
                 $rank++;
             }
         }
+
+        $manager->flush();
     }
 
     /**

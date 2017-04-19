@@ -35,25 +35,25 @@ class CategoryFixture extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $categorySubscription = new Category();
-        $categorySubscription->setHeadline('Subscription');
-        $categorySubscription->setIsActive(true);
-        $categorySubscription->setRank(0);
-        $manager->persist($categorySubscription);
+        $category = new Category();
+        $category->setHeadline('Subscription');
+        $category->setIsActive(true);
+        $category->setRank(0);
+        $manager->persist($category);
+
+        $this->addReference('category-subscription', $category);
+
+
+        $category = new Category();
+        $category->setHeadline('Website');
+        $category->setIsActive(true);
+        $category->setRank(1);
+        $manager->persist($category);
+
+        $this->addReference('category-website', $category);
+
+
         $manager->flush();
-
-        $this->addReference('category-subscription', $categorySubscription);
-
-
-        $categoryWebsite = new Category();
-        $categoryWebsite->setHeadline('Website');
-        $categoryWebsite->setIsActive(true);
-        $categoryWebsite->setRank(1);
-
-        $manager->persist($categoryWebsite);
-        $manager->flush();
-
-        $this->addReference('category-website', $categoryWebsite);
     }
 
     /**
