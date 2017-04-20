@@ -12,8 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FaqController extends Controller
 {
     /**
-     * Default index. Shows one category/question at a time. If you want to just show everything at once, use the
-     * indexWithoutCollapse action instead.
+     * Default index.
+     * list all questions + answers show/hide can be defined in the template
      *
      * @param string $categorySlug
      * @param string $questionSlug
