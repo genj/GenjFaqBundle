@@ -1,0 +1,10 @@
+
+<h2>Category {{ category.headline }}</h2>
+<p>{{ category.body }}</p>
+<ul>
+    {% for question in category.sortedQuestions %}
+    <li>
+        <a href="{{ path(question.routeName, question.routeParameters) }}">{{ question.headline|e }}</a>
+    </li>
+    {% endfor %}
+</ul>

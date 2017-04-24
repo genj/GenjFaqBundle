@@ -37,12 +37,13 @@ class CategoryRepository extends EntityRepository
             ->where('c.isActive = :isActive')
             ->andWhere('c.slug = :slug')
             ->orderBy('c.rank', 'ASC')
+            ->setMaxResults(1)
             ->getQuery();
 
         $query->setParameter('isActive', true);
         $query->setParameter('slug', $slug);
 
-        return $query->execute();
+        return $query->getOneOrNullResult();
     }
 
     /**

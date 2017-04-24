@@ -312,7 +312,7 @@ class Category
      */
     public function getRouteName()
     {
-        return 'genj_faq';
+        return 'genj_faq_category_show';
     }
 
     /**
@@ -323,7 +323,7 @@ class Category
     public function getRouteParameters()
     {
         return array(
-            'categorySlug' => $this->getSlug()
+            'slug' => $this->getSlug()
         );
     }
 }

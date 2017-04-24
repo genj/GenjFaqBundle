@@ -1,0 +1,9 @@
+
+<h2>Categories</h2>
+<ul>
+    {% for category in categories %}
+    <li>
+        <a href="{{ path(category.routeName, category.routeParameters) }}">{{ category.headline|e }}</a>
+    </li>
+    {% endfor %}
+</ul>
