@@ -29,4 +29,38 @@ class QuestionRepository extends EntityRepository
 
         return $query->getOneOrNullResult();
     }
+
+    /**
+     * @param string $slug
+     *
+     * @return Question|null
+     */
+    public function retrieveActiveBySlug($slug)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->join('q.category', 'c')
+            ->where('q.slug = :slug')
+            ->setMaxResults(1)
+            ->getQuery();
+
+        $query->setParameter('slug', $slug);
+
+        return $query->getOneOrNullResult();
+    }
+
+    /**
+     * @param int $max
+     *
+     * @return DoctrineCollection|null
+     */
+    public function retrieveMostRecent($max)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->join('q.category', 'c')
+            ->orderBy('q.createdAt', 'ASC')
+            ->setMaxResults($max)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

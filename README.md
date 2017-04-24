@@ -89,6 +89,16 @@ Note that it is also required to have the Sluggable and Timestampable behaviours
 gedmo/doctrine-extensions (see https://github.com/Atlantic18/DoctrineExtensions).
 
 
+## Advanced
+
+As soon you want more than the default category listing with all questions + answers you
+shouldn't import the bundle route, but copy only the part you are actualy using.
+
+e.g. if you want single pages for each question use the ```genj_faq_question_show``` route.
+
+For further examples see https://github.com/genj/faq-demo
+
+
 ## FAQ
 
 * How do I add this to SonataAdmin?

@@ -259,7 +259,7 @@ class Question
      */
     public function getRouteName()
     {
-        return 'genj_faq_faq_index';
+        return 'genj_faq_question_show';
     }
 
     /**
@@ -271,7 +271,7 @@ class Question
     {
         return array(
             'categorySlug' => $this->getCategory()->getSlug(),
-            'questionSlug' => $this->getSlug()
+            'slug'         => $this->getSlug()
         );
     }
 
