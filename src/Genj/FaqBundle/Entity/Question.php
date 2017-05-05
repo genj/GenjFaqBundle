@@ -25,7 +25,6 @@ class Question
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
-     * @ORM\JoinColumn(referencedColumnName="id", onDelete="CASCADE", nullable=false)
      * @ORM\OrderBy({"rank" = "asc"})
      */
     protected $category;
@@ -42,25 +41,25 @@ class Question
 
     /**
      * @Gedmo\SortablePosition
-     * @ORM\Column(name="rank", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $rank;
 
     /**
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $createdAt;
 
     /**
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
 
     /**
      * @Gedmo\Slug(fields={"headline"}, updatable=false)
-     * @ORM\Column(type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     protected $slug;
 

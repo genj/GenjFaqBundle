@@ -43,24 +43,24 @@ class Category
     protected $body;
 
     /**
-     * @ORM\Column(name="rank", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $rank;
 
     /**
-     * @ORM\Column(name="is_active", type="boolean")
+     * @ORM\Column(type="boolean")
      */
     protected $isActive;
 
     /**
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $createdAt;
 
     /**
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
 
@@ -302,7 +302,7 @@ class Category
      */
     public function __toString()
     {
-        return $this->getHeadline();
+        return (string) $this->getHeadline();
     }
 
     /**
