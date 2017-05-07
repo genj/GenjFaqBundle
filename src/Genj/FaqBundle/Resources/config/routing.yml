@@ -1,7 +1,11 @@
 genj_faq_faq_index:
-    path:  /faq/{categorySlug}/{questionSlug}
-    defaults: { _controller: GenjFaqBundle:Faq:index, categorySlug: null, questionSlug: null }
+    path: /faq/{categorySlug}/{questionSlug}
+    defaults:
+        _controller: GenjFaqBundle:Faq:index
+        categorySlug: null
+        questionSlug: null
 
 genj_faq_question_show:
-    path:  /faq/{categorySlug}/{slug}
-    defaults: { _controller: GenjFaqBundle:Question:show }
+    path: /faq/{categorySlug}/{slug}
+    defaults:
+        _controller: GenjFaqBundle:Question:show
