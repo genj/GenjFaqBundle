@@ -1,12 +1,8 @@
-you searched for: <strong>{{ query }}</strong><br>
+you searched for: <strong>{{ search.headline }}</strong><br>
 
-{% if search %}
-    this has been searched {{ search.searchCount }}x
-{% endif %}
+this has been searched {{ search.searchCount }}x
 
-{% if query is not empty %}
-{{ render(controller('GenjFaqBundle:Question:listByQuery', { max: 15, 'query': query })) }}
-{% endif %}
+{{ render(controller('GenjFaqBundle:Question:listByQuery', { max: 15, 'query': search.headline })) }}
 
 
 

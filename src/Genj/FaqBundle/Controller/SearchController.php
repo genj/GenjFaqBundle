@@ -46,15 +46,13 @@ class SearchController extends Controller
             $search->setHeadline($query);
         }
 
-        if ($search) {
-            // increase search count
-            $search->setSearchCount($search->getSearchCount() + 1);
+        // increase search count - if we don't have one - something is wrong
+        $search->setSearchCount($search->getSearchCount() + 1);
 
-            /** @var EntityManager $em */
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($search);
-            $em->flush();
-        }
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($search);
+        $em->flush();
 
         return $this->render(
             'GenjFaqBundle:Search:show.html.twig',
