@@ -4,10 +4,10 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 
 * Questions are grouped into Categories
 * Categories can be deactivated
-* Can show all information at once, or collapse questions/categories for big FAQs
- that is basically up to you - how you are handling this in the template
+* Questions can be drafted and scheduled for publishing
+* Can show all information at once, or collapse questions/categories for big FAQs.
+ It's basically up to you - how you are handling this in the template
 * Collapsed mode generates SEO friendly URLs
-
 
 
 ## Requirements
@@ -23,7 +23,7 @@ Add this to your composer.json:
     ...
     "require": {
         ...
-        "gedmo/doctrine-extensions": ">=2.4.10",
+        "gedmo/doctrine-extensions": "~2.3,<3.0",
         "genj/faq-bundle": "dev-master"
         ...
 ```
