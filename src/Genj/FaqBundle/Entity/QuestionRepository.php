@@ -48,7 +48,7 @@ class QuestionRepository extends EntityRepository
             ->where('q.isActive = :isActive')
             ->andWhere('q.publishAt <= :publishAt')
             ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')
-            ->orderBy('q.publishAt', 'ASC')
+            ->orderBy('q.publishAt', 'DESC')
             ->setMaxResults($max)
             ->getQuery();
 
@@ -73,7 +73,7 @@ class QuestionRepository extends EntityRepository
             ->andWhere('q.isActive = :isActive')
             ->andWhere('q.publishAt <= :publishAt')
             ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')
-            ->orderBy('q.publishAt', 'ASC')
+            ->orderBy('q.publishAt', 'DESC')
             ->setMaxResults($max)
             ->getQuery();
 

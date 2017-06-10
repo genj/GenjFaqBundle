@@ -19,7 +19,7 @@ class SearchRepository extends EntityRepository
     public function retrieveMostPopular($max)
     {
         $query = $this->createQueryBuilder('s')
-            ->orderBy('s.searchCount', 'ASC')
+            ->orderBy('s.searchCount', 'DESC')
             ->setMaxResults($max)
             ->getQuery();
 
