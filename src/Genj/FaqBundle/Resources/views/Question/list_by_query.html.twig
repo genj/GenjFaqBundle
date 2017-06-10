@@ -3,5 +3,7 @@
 <ul>
     {% for question in questions %}
         <li><a href="{{ path(question.routeName, question.routeParameters) }}">{{ question.headline }}</a></li>
+    {% else %}
+        <li>nothing found</li>
     {% endfor %}
 </ul>

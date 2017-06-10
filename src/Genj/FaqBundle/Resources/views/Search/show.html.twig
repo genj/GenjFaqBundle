@@ -1,9 +1,14 @@
-you searched for: <strong>{{ search.headline }}</strong><br>
+{% if search %}
+    you searched for: <strong>{{ search.headline }}</strong><br>
 
-this has been searched {{ search.searchCount }}x
+    this has been searched {{ search.searchCount }}x
 
-{{ render(controller('GenjFaqBundle:Question:listByQuery', { max: 15, 'query': search.headline })) }}
+    {{ render(controller('GenjFaqBundle:Question:listByQuery', { max: 15, 'query': search.headline })) }}
 
+{% else %}
 
+    please add a search word.
+
+{% endif %}
 
 {{ render(controller('GenjFaqBundle:Search:listMostPopular')) }}
