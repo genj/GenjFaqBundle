@@ -143,7 +143,7 @@ class Category
      *
      * @param string $rank
      *
-     * @return Question
+     * @return Category
      */
     public function setRank($rank)
     {

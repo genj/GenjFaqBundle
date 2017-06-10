@@ -18,7 +18,7 @@ class FaqController extends Controller
      * @param string $categorySlug
      * @param string $questionSlug
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundException
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($categorySlug, $questionSlug)
@@ -63,7 +63,7 @@ class FaqController extends Controller
      * @param string $questionSlug
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotHttpException
      */
     protected function generateRedirectToDefaultSelection($categorySlug, $questionSlug)
     {
