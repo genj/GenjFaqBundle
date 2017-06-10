@@ -1,4 +1,4 @@
-# Ugrade from v1.x to v2.x
+# Ugrade from v1.0.5 to v1.0.6
 
 ## Controller
  

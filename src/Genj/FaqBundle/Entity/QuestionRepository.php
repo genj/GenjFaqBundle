@@ -21,29 +21,17 @@ class QuestionRepository extends EntityRepository
         $query = $this->createQueryBuilder('q')
             ->join('q.category', 'c')
             ->where('c.slug = :categorySlug')
+            ->andWhere('q.isActive = :isActive')
+            ->andWhere('q.publishAt <= :publishAt')
+            ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')
             ->orderBy('q.rank', 'ASC')
             ->setMaxResults(1)
             ->getQuery();
 
         $query->setParameter('categorySlug', $categorySlug);
-
-        return $query->getOneOrNullResult();
-    }
-
-    /**
-     * @param string $slug
-     *
-     * @return Question|null
-     */
-    public function retrieveActiveBySlug($slug)
-    {
-        $query = $this->createQueryBuilder('q')
-            ->join('q.category', 'c')
-            ->where('q.slug = :slug')
-            ->setMaxResults(1)
-            ->getQuery();
-
-        $query->setParameter('slug', $slug);
+        $query->setParameter('isActive', true);
+        $query->setParameter('publishAt', date('Y-m-d H:i:s'));
+        $query->setParameter('expiresAt', date('Y-m-d H:i:s'));
 
         return $query->getOneOrNullResult();
     }
@@ -57,9 +45,16 @@ class QuestionRepository extends EntityRepository
     {
         $query = $this->createQueryBuilder('q')
             ->join('q.category', 'c')
-            ->orderBy('q.createdAt', 'ASC')
+            ->where('q.isActive = :isActive')
+            ->andWhere('q.publishAt <= :publishAt')
+            ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')
+            ->orderBy('q.publishAt', 'ASC')
             ->setMaxResults($max)
             ->getQuery();
+
+        $query->setParameter('isActive', true);
+        $query->setParameter('publishAt', date('Y-m-d H:i:s'));
+        $query->setParameter('expiresAt', date('Y-m-d H:i:s'));
 
         return $query->getResult();
     }

@@ -46,6 +46,21 @@ class Question
     protected $rank;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isActive;
+
+    /**
+     * @ORM\Column( type="datetime")
+     */
+    protected $publishAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $expiresAt;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
@@ -112,6 +127,16 @@ class Question
     }
 
     /**
+     * Get body
+     *
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
      * Get rank
      *
      * @return string
@@ -136,13 +161,75 @@ class Question
     }
 
     /**
-     * Get body
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return Question
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
      *
      * @return string
      */
-    public function getBody()
+    public function getIsActive()
     {
-        return $this->body;
+        return $this->isActive;
+    }
+
+    /**
+     * Set publishAt
+     *
+     * @param \DateTime $publishAt
+     *
+     * @return Question
+     */
+    public function setPublishAt($publishAt)
+    {
+        $this->publishAt = $publishAt;
+
+        return $this;
+    }
+
+    /**
+     * Get publishAt
+     *
+     * @return \DateTime
+     */
+    public function getPublishAt()
+    {
+        return $this->publishAt;
+    }
+
+    /**
+     * Set expiresAt
+     *
+     * @param \DateTime $expiresAt
+     *
+     * @return Question
+     */
+    public function setExpiresAt($expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expiresAt
+     *
+     * @return \DateTime
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
     }
 
     /**
@@ -249,6 +336,20 @@ class Question
     public function __toString()
     {
         return (string) $this->getHeadline();
+    }
+
+    /**
+     * Is visible for user?
+     *
+     * @return boolean
+     */
+    public function isPublic()
+    {
+        if ($this->getIsActive() && ($this->getPublishAt()->getTimestamp() < time()) && (!$this->getExpiresAt() || $this->getExpiresAt()->getTimestamp() > time())) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

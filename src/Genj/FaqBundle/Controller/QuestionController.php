@@ -3,6 +3,8 @@
 namespace Genj\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class QuestionController
@@ -21,10 +23,11 @@ class QuestionController extends Controller
      */
     public function showAction($slug)
     {
-        $question = $this->getQuestionRepository()->retrieveActiveBySlug($slug);
+        $securityContext = $this->container->get('security.authorization_checker');
+        $question        = $this->getQuestionRepository()->findOneBySlug($slug);
 
-        if (!$question) {
-            throw $this->createNotFoundException('question doesnt exists');
+        if (!$question || (!$question->isPublic() && !$securityContext->isGranted('ROLE_EDITOR'))) {
+            throw $this->createNotFoundException('question not found');
         }
 
         return $this->render(
