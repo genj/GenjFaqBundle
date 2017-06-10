@@ -1,8 +1,10 @@
 parameters:
     genj_faq.entity.question.class: Genj\FaqBundle\Entity\Question
     genj_faq.entity.category.class: Genj\FaqBundle\Entity\Category
+    genj_faq.entity.search.class: Genj\FaqBundle\Entity\Search
     genj_faq.entity.question_repository.class: Genj\FaqBundle\Entity\QuestionRepository
     genj_faq.entity.category_repository.class: Genj\FaqBundle\Entity\CategoryRepository
+    genj_faq.entity.search_repository.class: Genj\FaqBundle\Entity\SearchRepository
 
 services:
     genj_faq.entity.question_repository:
@@ -14,3 +16,8 @@ services:
         class:     '%genj_faq.entity.category_repository.class%'
         factory:   ['@doctrine.orm.entity_manager', getRepository]
         arguments: ['%genj_faq.entity.category.class%']
+
+    genj_faq.entity.search_repository:
+        class:     '%genj_faq.entity.search_repository.class%'
+        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['%genj_faq.entity.search.class%']

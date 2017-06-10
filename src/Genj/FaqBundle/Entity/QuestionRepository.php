@@ -58,4 +58,30 @@ class QuestionRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    /**
+     * @param string $query
+     * @param int    $max
+     *
+     * @return DoctrineCollection|null
+     */
+    public function retrieveByQuery($searchQuery, $max)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->join('q.category', 'c')
+            ->where('q.headline like :searchQuery or q.body like :searchQuery')
+            ->andWhere('q.isActive = :isActive')
+            ->andWhere('q.publishAt <= :publishAt')
+            ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')
+            ->orderBy('q.publishAt', 'ASC')
+            ->setMaxResults($max)
+            ->getQuery();
+
+        $query->setParameter('searchQuery', '%'. $searchQuery . '%');
+        $query->setParameter('isActive', true);
+        $query->setParameter('publishAt', date('Y-m-d H:i:s'));
+        $query->setParameter('expiresAt', date('Y-m-d H:i:s'));
+
+        return $query->getResult();
+    }
 }

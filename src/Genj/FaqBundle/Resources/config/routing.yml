@@ -1,3 +1,9 @@
+genj_faq_search_show:
+    path: /faq/search/{slug}
+    defaults:
+        _controller: GenjFaqBundle:Search:show
+        slug: null
+
 genj_faq_faq_index:
     path: /faq/{categorySlug}/{questionSlug}
     defaults:

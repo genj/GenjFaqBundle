@@ -8,6 +8,7 @@ The GenjFaqBundle allows you to display a FAQ on your website, with the question
 * Can show all information at once, or collapse questions/categories for big FAQs.
  It's basically up to you - how you are handling this in the template
 * Collapsed mode generates SEO friendly URLs
+* Contains very simple mysql search - if you need it more advanced use elasticsearch
 
 
 ## Requirements

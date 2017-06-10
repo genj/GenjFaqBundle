@@ -1,0 +1,7 @@
+<h2>your results</h2>
+
+<ul>
+    {% for question in questions %}
+        <li><a href="{{ path(question.routeName, question.routeParameters) }}">{{ question.headline }}</a></li>
+    {% endfor %}
+</ul>

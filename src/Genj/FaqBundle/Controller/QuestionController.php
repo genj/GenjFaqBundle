@@ -39,7 +39,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * list most recent added questions based on createdAt
+     * list most recent added questions based on publishAt
      *
      * @param int $max
      *
@@ -51,6 +51,27 @@ class QuestionController extends Controller
 
         return $this->render(
             'GenjFaqBundle:Question:list_most_recent.html.twig',
+            array(
+                'questions' => $questions,
+                'max'       => $max
+            )
+        );
+    }
+
+    /**
+     * list questions which fitting the query
+     *
+     * @param string $query
+     * @param int    $max
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listByQueryAction($query, $max = 30)
+    {
+        $questions = $this->getQuestionRepository()->retrieveByQuery($query, $max);
+
+        return $this->render(
+            'GenjFaqBundle:Question:list_by_query.html.twig',
             array(
                 'questions' => $questions,
                 'max'       => $max
