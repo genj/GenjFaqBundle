@@ -1,0 +1,5 @@
+{% if question is not empty %}
+
+    <a href="{{ path(question.routeName, question.routeParameters) }}">{{ question.headline }}</a>
+
+{% endif %}

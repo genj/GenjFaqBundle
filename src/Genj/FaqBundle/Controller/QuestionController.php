@@ -56,6 +56,33 @@ class QuestionController extends Controller
     }
 
     /**
+     * @param int       $id
+     * @param \stdClass $object
+     * @param string    $style
+     * @param string    $source
+     * @param string    $headline
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function teaserByIdOrObjectAction($id = null, $object = null, $style = null, $source = null, $headline = null)
+    {
+        $question = $object;
+
+        if ($id !== null) {
+            $question = $this->getQuestionRepository()->findOneById($id);
+        }
+
+        return $this->render(
+            'GenjFaqBundle:Question:teaser_by_id_or_object.html.twig', array(
+                'question' => $question,
+                'style'    => $style,
+                'source'   => $source,
+                'headline' => $headline
+            )
+        );
+    }
+
+    /**
      * @return \Genj\FaqBundle\Entity\QuestionRepository
      */
     protected function getQuestionRepository()
