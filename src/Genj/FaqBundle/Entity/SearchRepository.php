@@ -11,4 +11,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class SearchRepository extends EntityRepository
 {
+    /**
+     * @param int $max
+     *
+     * @return DoctrineCollection|null
+     */
+    public function retrieveMostPopular($max)
+    {
+        $query = $this->createQueryBuilder('s')
+            ->orderBy('s.searchCount', 'ASC')
+            ->setMaxResults($max)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

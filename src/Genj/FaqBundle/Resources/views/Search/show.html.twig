@@ -7,3 +7,7 @@ you searched for: <strong>{{ query }}</strong><br>
 {% if query is not empty %}
 {{ render(controller('GenjFaqBundle:Question:listByQuery', { max: 15, 'query': query })) }}
 {% endif %}
+
+
+
+{{ render(controller('GenjFaqBundle:Search:listMostPopular')) }}

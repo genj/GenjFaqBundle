@@ -1,0 +1,7 @@
+    <h2>Most popular queries</h2>
+
+    <ul>
+    {% for query in queries %}
+        <li><a href="{{ path(query.routeName, query.routeParameters) }}">{{ query.headline }}</a> ({{ query.searchCount }})</li>
+    {% endfor %}
+    </ul>

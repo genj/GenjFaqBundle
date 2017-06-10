@@ -66,6 +66,26 @@ class SearchController extends Controller
     }
 
     /**
+     * list most popular search queries based on searchCount
+     *
+     * @param int $max
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listMostPopularAction($max = 3)
+    {
+        $queries = $this->getSearchRepository()->retrieveMostPopular($max);
+
+        return $this->render(
+            'GenjFaqBundle:Search:list_most_popular.html.twig',
+            array(
+                'queries' => $queries,
+                'max'     => $max
+            )
+        );
+    }
+
+    /**
      * @return \Genj\FaqBundle\Entity\SearchRepository
      */
     protected function getSearchRepository()

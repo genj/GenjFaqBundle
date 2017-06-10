@@ -60,7 +60,7 @@ class QuestionRepository extends EntityRepository
     }
 
     /**
-     * @param string $query
+     * @param string $searchQuery
      * @param int    $max
      *
      * @return DoctrineCollection|null
