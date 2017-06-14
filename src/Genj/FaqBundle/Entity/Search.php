@@ -27,12 +27,12 @@ class Search
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     protected $headline;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
     protected $searchCount;
 
@@ -50,7 +50,7 @@ class Search
 
     /**
      * @Gedmo\Slug(fields={"headline"}, updatable=false)
-     * @ORM\Column(type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=100)
      */
     protected $slug;
 

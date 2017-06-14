@@ -30,7 +30,7 @@ class Question
     protected $category;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     protected $headline;
 
@@ -74,7 +74,7 @@ class Question
 
     /**
      * @Gedmo\Slug(fields={"headline"}, updatable=false)
-     * @ORM\Column(type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=100)
      */
     protected $slug;
 

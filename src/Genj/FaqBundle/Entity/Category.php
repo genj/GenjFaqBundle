@@ -33,7 +33,7 @@ class Category
     protected $questions;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     protected $headline;
 
@@ -66,7 +66,7 @@ class Category
 
     /**
      * @Gedmo\Slug(fields={"headline"}, updatable=false)
-     * @ORM\Column(type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=100)
      */
     protected $slug;
 
