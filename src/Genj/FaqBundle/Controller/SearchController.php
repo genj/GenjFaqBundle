@@ -26,21 +26,31 @@ class SearchController extends Controller
         $query  = trim(strtolower(strip_tags($request->get('query', ''))));
         $search = null;
 
-        // if we have a slu g- there was a search
+        // if we have a slug - there was a search before
         if ($slug) {
-            /** @var Search $search */
+            /** @var \Genj\FaqBundle\Entity\Search $search */
             $search = $this->getSearchRepository()->findOneBySlug($slug);
         }
 
-        // just than the query is interesting
+        // just without slug the query is interesting
         elseif ($query != '') {
-            /** @var Search $search */
+
+            // is my query a plain number?
+            // than redirect there right away
+            /** @var \Genj\FaqBundle\Entity\Question $question */
+            $question = $this->getQuestionRepository()->findOneById($query);
+
+            if ($question) {
+                return $this->redirectToRoute($question->getRouteName(), $question->getRouteParameters());
+            }
+
+            /** @var \Genj\FaqBundle\Entity\Search $search */
             $search = $this->getSearchRepository()->findOneByHeadline($query);
         }
 
         // and if we don't have anything yet - we start from scratch
         if (!$search and $query != '') {
-            /** @var Search $search */
+            /** @var \Genj\FaqBundle\Entity\Search $search */
             $className = $this->getSearchRepository()->getClassName();
             $search    = new $className();
             $search->setHeadline($query);
@@ -83,6 +93,14 @@ class SearchController extends Controller
                 'max'     => $max
             )
         );
+    }
+
+    /**
+     * @return \Genj\FaqBundle\Entity\QuestionRepository
+     */
+    protected function getQuestionRepository()
+    {
+        return $this->container->get('genj_faq.entity.question_repository');
     }
 
     /**
