@@ -62,14 +62,22 @@ class QuestionRepository extends EntityRepository
     /**
      * @param string $searchQuery
      * @param int    $max
+     * @param array  $whereFields
      *
      * @return DoctrineCollection|null
      */
-    public function retrieveByQuery($searchQuery, $max)
+    public function retrieveByQuery($searchQuery, $max, $whereFields = array('headline', 'body'))
     {
+        $sql = array();
+        foreach ($whereFields as $field ) {
+            $sql[] = 'q.' . $field . ' like :searchQuery';
+        }
+
+        $where = implode (' or ', $sql);
+
         $query = $this->createQueryBuilder('q')
             ->join('q.category', 'c')
-            ->where('q.headline like :searchQuery or q.body like :searchQuery')
+            ->where($where)
             ->andWhere('q.isActive = :isActive')
             ->andWhere('q.publishAt <= :publishAt')
             ->andWhere('(q.expiresAt IS NULL OR q.expiresAt >= :expiresAt)')

@@ -63,12 +63,13 @@ class QuestionController extends Controller
      *
      * @param string $query
      * @param int    $max
+     * @param array  $whereFields
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listByQueryAction($query, $max = 30)
+    public function listByQueryAction($query, $max = 30, $whereFields = array('headline', 'body'))
     {
-        $questions = $this->getQuestionRepository()->retrieveByQuery($query, $max);
+        $questions = $this->getQuestionRepository()->retrieveByQuery($query, $max, $whereFields);
 
         return $this->render(
             'GenjFaqBundle:Question:list_by_query.html.twig',
