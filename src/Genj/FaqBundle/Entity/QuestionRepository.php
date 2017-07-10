@@ -92,4 +92,23 @@ class QuestionRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    /**
+     * used for autocomplete in admin
+     *
+     * @param string $query
+     *
+     * @return array
+     */
+    public function retrieveByPartialHeadline($query)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->select('q.id, q.headline')
+            ->where('q.headline LIKE :query')
+            ->orderBy('q.publishAt', 'DESC')
+            ->setParameter('query','%'.$query.'%')
+            ->getQuery();
+
+        return $query->getArrayResult();
+    }
 }
