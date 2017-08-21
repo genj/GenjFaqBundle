@@ -59,7 +59,7 @@ class QuestionFixture extends AbstractFixture implements OrderedFixtureInterface
                 $question->setBody('The answer to the question "' . $questionText . '".');
                 $question->setRank($rank);
                 $question->setCategory($this->getReference($category));
-                $question->isActive(true);
+                $question->setIsActive(true);
                 $question->setPublishAt(new \DateTime(date('Y-m-d H:i:s', (time() - rand(1, 200)))));
 
                 $manager->persist($question);
